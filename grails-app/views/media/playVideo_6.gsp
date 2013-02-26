@@ -31,8 +31,19 @@
             display: table-cell;
             vertical-align: top;
         }
-        #player video:first-of-type {
+        #player canvas {
+            display: block;
+        }
+        #player menu, #player label {
+            display: inline-block;
+            padding: 0;
+        }
+        #player video:first-of-type, #player img:first-of-type {
             display: none;
+        }
+        input[type=number] {
+            width: 36px;
+        }
     </style>
   <script>
         function change_video(event) {
@@ -41,17 +52,47 @@
             var ext = p.currentSrc.slice(p.currentSrc.lastIndexOf('.'),p.currentSrc.length);
             p.src = 'http://localhost/DevVid/ ' + v + ext;
         }
-        
+        function grayscale(pixels) {
+            //see http://www.html5rocks.com/en/tutorials/canvas/imagefilters/ for a full introduction to filters and canvas
+            var d = pixels.data;
+            for (var i=0; i<d.length; i+=4) {
+              var r = d[i];
+              var g = d[i+1];
+              var b = d[i+2];
+              // CIE luminance for the RGB
+              // The human eye is bad at seeing red and blue, so we de-emphasize them.
+              var v = 0.2126*r + 0.7152*g + 0.0722*b;
+              d[i] = d[i+1] = d[i+2] = v
+            }
+            return pixels;
+        }
         $(document).ready(
             function() {
+                var framed = true;
+                var grayed = false;
+                var c_mode = 'source-over';
+                var c_opac = 1;
                 $('.playlist').bind('click', change_video);
                 var v = $('#player video:first-of-type')[0];
+                var frame = $('#player img:first-of-type')[0];
                 var canvas = $('#player canvas:first-of-type')[0];
                 var context = canvas.getContext('2d');
                 function draw() {
                     if(v.paused || v.ended) return false;
+                    context.clearRect(0,0,720,480);
+                    context.globalCompositeOperation = c_mode;
+                    context.globalAlpha = c_opac;
                     context.drawImage(v,0,0,720,480);
+                    if (grayed) {
+                        context.putImageData(
+                            grayscale(context.getImageData(0,0,720,480))
+                        ,0,0);
+                    }
+                    if (framed) {
+                        context.drawImage(frame,0,0,720,480);
+                    }
                     requestAnimationFrame(draw, canvas);
+                    return true;
                 }
                 function play_video(event) {
                     event.target.play();
@@ -77,8 +118,30 @@
                         case '>>':
                             v.playbackRate = v.playbackRate * 2.0
                             break;
+                        case 'Framed':
+                            framed = false;
+                            $(event.target).text('Frame');
+                            break;
+                        case 'Frame':
+                            framed = true;
+                            $(event.target).text('Framed');
+                            break;
+                        case 'Grayed':
+                            grayed = false;
+                            $(event.target).text('Gray');
+                            break;
+                        case 'Gray':
+                            grayed = true;
+                            $(event.target).text('Grayed');
+                            break;
                     }
                     return false;
+                })
+                $('select').bind('change', function(event) {
+                    c_mode = event.target.value;
+                })
+                $('input[type=number]').bind('input', function(event) {
+                    c_opac = event.target.value;
                 })
             }
         )
@@ -87,7 +150,7 @@
 	</head>
 <body>
   <div class="body">
-  HTML5 Video Juke 5
+  HTML5 Video Juke 6
   </div>
   
    <header>
@@ -102,7 +165,29 @@
                 <button>||</button>
                 <button> &gt; </button>
                 <button>&gt;&gt;</button>
+                <button>Framed</button>
+                <button>Gray</button>
             </menu>
+            <label>
+                Composition:
+                <select>
+                    <option>copy</option>
+                    <option>destination-atop</option>
+                    <option>destination-in</option>
+                    <option>destination-out</option>
+                    <option>destination-over</option>
+                    <option>source-atop</option>
+                    <option>source-in</option>
+                    <option>source-out</option>
+                    <option selected>source-over</option>
+                    <option>lighter</option>
+                    <option>xor</option>
+                </select>
+            </label>
+            <label>
+                Opacity:
+                <input type="number" step="0.1" min="0" max="1" value="1.0">
+            </label>
             <video controls
                    width="720" height="480">
                  <source src="http://localhost/DevVid/VID_20120122_133036.webm" type="video/webm">  
@@ -111,6 +196,7 @@
                 try <a href="http://localhost/DevVid/VID_20120122_133036.mp4">downloading
                 the video instead</a>
             </video>
+            <img src="images/frame.svg">
         </div>
         <nav>
             <h2>Playlist</h2>

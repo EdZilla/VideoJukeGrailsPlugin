@@ -5,11 +5,15 @@ class MediaController {
 	static scaffold = true
     //def index() { }
 	
-	def playVideo = {
-		log.trace" playVideo enter"
+	def playVideo_4 = {
+		log.trace" playVideo_4 enter"
 	}
 	
 	def playVideo_5 = {
-		log.trace" playVideo enter"
+		log.trace" playVideo_6 enter"
+	}
+	
+	def playVideo_6 = {
+		log.trace" playVideo_6 enter"
 	}
 }

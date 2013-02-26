@@ -21,7 +21,9 @@
 			
 		</div>
 		<div>
-						<g:link controller="Media" action="playVideo" >Play Video</g:link><br>
+						<g:link controller="Media" action="playVideo_4" >Play Video 4</g:link><br>
+						<g:link controller="Media" action="playVideo_5" >Play Video_5</g:link><br>
+						<g:link controller="Media" action="playVideo_6" >Play Video_6</g:link><br>
 						<g:link controller="digCont" action="dacTopology" >DAC Topology</g:link><br>
 						<g:link controller="digCont" action="dacSystem" >DAC System Info</g:link><br>
 		</div>

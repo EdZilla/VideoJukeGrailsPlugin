@@ -40,7 +40,7 @@
             var v = $(event.target).text().trim();
             var p = $('#player video:first-of-type')[0];
             var ext = p.currentSrc.slice(p.currentSrc.lastIndexOf('.'),p.currentSrc.length);
-            p.src = 'https://chimps-dev.cable.comcast.com/DevVideos/bak/' + v + ext;
+            p.src = 'http://localhost/DevVid/' + v + ext;
         }
         
         $(document).ready(
@@ -66,7 +66,7 @@
 	</head>
 <body>
   <div class="body">
-  Howdy
+  HTML5 Video Juke 4
   </div>
   
    <header>
@@ -77,10 +77,10 @@
             <canvas width="720" height="480"></canvas>
             <video controls
                    width="720" height="480">
-                 <source src="https://chimps-dev.cable.comcast.com/DevVideos/bak/VID_20120122_133036.webm" type="video/webm">  
-                <source src="https://chimps-dev.cable.comcast.com/DevVideos/bak/VID_20120122_133036.mp4" type="video/mp4">
+                 <source src="http://localhost/DevVid/VID_20120122_133036.webm" type="video/webm">  
+                <source src="http://localhost/DevVid/VID_20120122_133036.mp4" type="video/mp4">
                 Your browser does not support the video element, please
-                try <a href="https://chimps-dev.cable.comcast.com/DevVideos/bak/VID_20120122_133036.mp4">downloading
+                try <a href="http://localhost/DevVid/VID_20120122_133036.mp4">downloading
                 the video instead</a>
             </video>
         </div>
@@ -92,7 +92,8 @@
                 <li>VID_20120122_132348</li>
                 <li>VID_20120122_132307</li>
                 <li>VID_20120122_132223</li>
-                <li>VID_20120122_132134</li>
+                <li>VID_20120122_132134
+                <li>mp4Experiment-web-low</li>
             </ul>
         </nav>
     </section>
