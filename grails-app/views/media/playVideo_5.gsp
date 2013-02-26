@@ -108,8 +108,7 @@
                  <source src="http://localhost/DevVid/VID_20120122_133036.webm" type="video/webm">  
                 <source src="http://localhost/DevVid/VID_20120122_133036.mp4" type="video/mp4">
                 Your browser does not support the video element, please
-                try <a href="http://localhost/DevVid/VID_20120122_133036.mp4">downloading
-                the video instead</a>
+                try <a href="http://localhost/DevVid/VID_20120122_133036.mp4">download the video</a>instead
             </video>
         </div>
         <nav>
@@ -121,7 +120,7 @@
                 <li>VID_20120122_132307</li>
                 <li>VID_20120122_132223</li>
                 <li>VID_20120122_132134</li>
-                <li>mp4Experiment-web-low</li>
+                <li>VID_mp4Experiment-web-low</li>
             </ul>
         </nav>
     </section>
