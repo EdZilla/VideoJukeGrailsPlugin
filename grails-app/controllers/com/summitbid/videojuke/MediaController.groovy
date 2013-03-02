@@ -10,7 +10,7 @@ class MediaController {
 	}
 	
 	def playVideo_5 = {
-		log.trace" playVideo_6 enter"
+		log.trace" playVideo_5 enter"
 	}
 	
 	def playVideo_6 = {

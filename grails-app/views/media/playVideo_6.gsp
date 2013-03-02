@@ -12,7 +12,7 @@
 		<title>Play Video-5</title>
 		
 		
-		<style>
+	<style>
         body {
             font-family:  sans-serif;
             border: 0;
@@ -45,12 +45,13 @@
             width: 36px;
         }
     </style>
-  <script>
+    
+   <script>
         function change_video(event) {
             var v = $(event.target).text().trim();
             var p = $('#player video:first-of-type')[0];
             var ext = p.currentSrc.slice(p.currentSrc.lastIndexOf('.'),p.currentSrc.length);
-            p.src = 'http://localhost/DevVid/ ' + v + ext;
+            p.src = 'http://localhost/DevVid/' + v + ext;
         }
         function grayscale(pixels) {
             //see http://www.html5rocks.com/en/tutorials/canvas/imagefilters/ for a full introduction to filters and canvas
@@ -154,7 +155,7 @@
   </div>
   
    <header>
-        <h1>HTML5 Video Telestrator Jukebox_5</h1>
+        <h1>HTML5 Video Telestrator Jukebox_6</h1>
     </header>
     <section id="player">
         <div>
@@ -190,23 +191,23 @@
             </label>
             <video controls
                    width="720" height="480">
-                 <source src="http://localhost/DevVid/VID_20120122_133036.webm" type="video/webm">  
-                <source src="http://localhost/DevVid/VID_20120122_133036.mp4" type="video/mp4">
+                 <source src="http://localhost/DevVid/VID_mp4Experiment-web-low.webm" type="video/webm">  
+                <source src="http://localhost/DevVid/VID_mp4Experiment-web-low.mp4" type="video/mp4">
                 Your browser does not support the video element, please
-                try <a href="http://localhost/DevVid/VID_20120122_133036.mp4">download the video</a>instead
+                try <a href="http://localhost/DevVid/VID_mp4Experiment-web-low.mp4">download the video</a>instead
             </video>
             <img src="images/frame.svg">
         </div>
         <nav>
             <h2>Playlist</h2>
             <ul class="playlist">
+            	<li>VID_mp4Experiment-web-low</li>
                 <li>VID_20120122_133036</li>
                 <li>VID_20120122_132933</li>
                 <li>VID_20120122_132348</li>
                 <li>VID_20120122_132307</li>
                 <li>VID_20120122_132223</li>
                 <li>VID_20120122_132134</li>
-                <li>VID_mp4Experiment-web-low</li>
             </ul>
         </nav>
     </section>

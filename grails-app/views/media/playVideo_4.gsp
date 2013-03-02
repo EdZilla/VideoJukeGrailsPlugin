@@ -77,22 +77,22 @@
             <canvas width="720" height="480"></canvas>
             <video controls
                    width="720" height="480">
-                 <source src="http://localhost/DevVid/VID_20120122_133036.webm" type="video/webm">  
-                <source src="http://localhost/DevVid/VID_20120122_133036.mp4" type="video/mp4">
+                 <source src="http://localhost/DevVid/VID_mp4Experiment-web-low.webm" type="video/webm">  
+                <source src="http://localhost/DevVid/VID_mp4Experiment-web-low.mp4" type="video/mp4">
                 Your browser does not support the video element, please
-                try <a href="http://localhost/DevVid/VID_20120122_133036.mp4">download the video </a> instead
+                try <a href="http://localhost/DevVid/VID_mp4Experiment-web-low.mp4">download the video </a> instead
             </video>
         </div>
         <nav>
             <h2>Playlist</h2>
             <ul class="playlist">
+            	<li>VID_mp4Experiment-web-low</li>
                 <li>VID_20120122_133036</li>
                 <li>VID_20120122_132933</li>
                 <li>VID_20120122_132348</li>
                 <li>VID_20120122_132307</li>
                 <li>VID_20120122_132223</li>
-                <li>VID_20120122_132134
-                <li>VID_mp4Experiment-web-low</li>
+                <li>VID_20120122_132134                
             </ul>
         </nav>
     </section>

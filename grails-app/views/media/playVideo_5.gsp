@@ -10,9 +10,8 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'media.label', default: 'Media')}" />
 		<title>Play Video-5</title>
-		
-		
-		<style>
+				
+	 <style>
         body {
             font-family:  sans-serif;
             border: 0;
@@ -33,13 +32,15 @@
         }
         #player video:first-of-type {
             display: none;
+        }
     </style>
-  <script>
+    
+    <script>
         function change_video(event) {
             var v = $(event.target).text().trim();
             var p = $('#player video:first-of-type')[0];
             var ext = p.currentSrc.slice(p.currentSrc.lastIndexOf('.'),p.currentSrc.length);
-            p.src = 'http://localhost/DevVid/ ' + v + ext;
+            p.src = 'http://localhost/DevVid/' + v + ext;
         }
         
         $(document).ready(
@@ -93,10 +94,10 @@
    <header>
         <h1>HTML5 Video Telestrator Jukebox_5</h1>
     </header>
-    <section id="player">
+      <section id="player">
         <div>
             <canvas width="720" height="480"></canvas>
-             <menu>
+            <menu>
                 <button>|&lt;</button>
                 <button>&lt;&lt;</button>
                 <button>||</button>
@@ -105,22 +106,23 @@
             </menu>
             <video controls
                    width="720" height="480">
-                 <source src="http://localhost/DevVid/VID_20120122_133036.webm" type="video/webm">  
-                <source src="http://localhost/DevVid/VID_20120122_133036.mp4" type="video/mp4">
+                <source src="http://localhost/DevVid/VID_mp4Experiment-web-low.mp4" type="video/mp4">
+                <source src="http://localhost/DevVid/VID_mp4Experiment-web-low.webm" type="video/webm">
                 Your browser does not support the video element, please
-                try <a href="http://localhost/DevVid/VID_20120122_133036.mp4">download the video</a>instead
+                try <a href="http://localhost/DevVid/VID_mp4Experiment-web-low.mp4">downloading
+                the video instead</a>
             </video>
         </div>
         <nav>
             <h2>Playlist</h2>
             <ul class="playlist">
+            	<li>VID_mp4Experiment-web-low</li>
                 <li>VID_20120122_133036</li>
                 <li>VID_20120122_132933</li>
                 <li>VID_20120122_132348</li>
                 <li>VID_20120122_132307</li>
                 <li>VID_20120122_132223</li>
                 <li>VID_20120122_132134</li>
-                <li>VID_mp4Experiment-web-low</li>
             </ul>
         </nav>
     </section>
