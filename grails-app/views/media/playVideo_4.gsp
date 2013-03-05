@@ -3,13 +3,13 @@
 <html>
 	<head>
 		  <meta charset="utf-8">
-	 	<title>Video Telestrator Jukebox</title>
+	 	<title>Video Jukebox 4</title>
     	<g:javascript library="jquery-1.8.2.min" />
     	<g:javascript library="raf-polyfill" />
     
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'media.label', default: 'Media')}" />
-		<title>Play Video</title>
+		<title>Play Video 4</title>
 		
 		
 		<style>

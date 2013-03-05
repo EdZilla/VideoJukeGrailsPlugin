@@ -3,7 +3,7 @@
 <html>
 	<head>
 		  <meta charset="utf-8">
-	 	<title>Video Telestrator Jukebox</title>
+	 	<title>Video Jukebox 7</title>
     	<g:javascript library="jquery-1.8.2.min" />
     	<g:javascript library="raf-polyfill" />
     
@@ -151,7 +151,7 @@
   <div class="body">
   HTML5 Video Juke 7
   </div>
-  
+  <span class="menuButton"><a class="home" href="${createLink(uri: '/')}">Home</a></span>
    <header>
         <h1>HTML5 Video Telestrator Jukebox_7</h1>
     </header>

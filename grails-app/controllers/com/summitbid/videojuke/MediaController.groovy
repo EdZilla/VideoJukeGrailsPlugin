@@ -5,6 +5,10 @@ class MediaController {
 	static scaffold = true
     //def index() { }
 	
+	def playVideo_3_IE9 = {
+		log.trace" playVideo_3_IE9 enter"
+	}
+	
 	def playVideo_4 = {
 		log.trace" playVideo_4 enter"
 	}
@@ -17,6 +21,10 @@ class MediaController {
 		log.trace" playVideo_6 enter"
 	}
 	
+	def playVideo_6_events = {
+		log.trace" playVideo_6_events enter"
+	}
+	
 	def playVideo_7 = {
 		log.trace" playVideo_7 enter"
 	}
@@ -27,5 +35,9 @@ class MediaController {
 	
 	def playVideo_9 = {
 		log.trace" playVideo_9 enter"
+	}
+	
+	def playVideo_10 = {
+		log.trace" playVideo_10 enter"
 	}
 }

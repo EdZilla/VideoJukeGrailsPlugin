@@ -3,7 +3,7 @@
 <html>
 	<head>
 		  <meta charset="utf-8">
-	 	<title>Video Telestrator Jukebox</title>
+	 	<title>Video Jukebox 6</title>
     	<g:javascript library="jquery-1.8.2.min" />
     	<g:javascript library="raf-polyfill" />
     
@@ -45,8 +45,7 @@
             width: 36px;
         }
     </style>
-    
-   <script>
+    <script>
         function change_video(event) {
             var v = $(event.target).text().trim();
             var p = $('#player video:first-of-type')[0];
@@ -79,19 +78,27 @@
                 var canvas = $('#player canvas:first-of-type')[0];
                 var context = canvas.getContext('2d');
                 function draw() {
+                	console.log('draw enter')
                     if(v.paused || v.ended) return false;
                     context.clearRect(0,0,720,480);
                     context.globalCompositeOperation = c_mode;
                     context.globalAlpha = c_opac;
                     context.drawImage(v,0,0,720,480);
+                    
                     if (grayed) {
+                    	console.log('is grayed')
                         context.putImageData(
                             grayscale(context.getImageData(0,0,720,480))
                         ,0,0);
                     }
+
+                	console.log('draw next')
                     if (framed) {
+                    	console.log('is framed')
                         context.drawImage(frame,0,0,720,480);
+                    	console.log('past drawImage')                    	
                     }
+                    console.log('about to call requestAnimationFrame')
                     requestAnimationFrame(draw, canvas);
                     return true;
                 }
@@ -153,7 +160,7 @@
   <div class="body">
   HTML5 Video Juke 6
   </div>
-  
+  <span class="menuButton"><a class="home" href="${createLink(uri: '/')}">Home</a></span>
    <header>
         <h1>HTML5 Video Telestrator Jukebox_6</h1>
     </header>

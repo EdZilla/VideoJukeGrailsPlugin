@@ -3,7 +3,7 @@
 <html>
 	<head>
 		  <meta charset="utf-8">
-	 	<title>Video Telestrator Jukebox</title>
+	 	<title>Video Jukebox 5</title>
     	<g:javascript library="jquery-1.8.2.min" />
     	<g:javascript library="raf-polyfill" />
     
@@ -40,13 +40,26 @@
             var v = $(event.target).text().trim();
             var p = $('#player video:first-of-type')[0];
             var ext = p.currentSrc.slice(p.currentSrc.lastIndexOf('.'),p.currentSrc.length);
-            p.src = 'http://localhost/DevVid/' + v + ext;
+	    p.src = 'http://localhost/DevVid/' + v + ext; 
+        }
+
+        function log_state(event) {
+            console.log(event.type);
+            console.log('networkState: ' + event.target.networkState);
+            console.log('readyState: ' + event.target.readyState);
         }
         
         $(document).ready(
             function() {
                 $('.playlist').bind('click', change_video);
                 var v = $('#player video:first-of-type')[0];
+
+                v.addEventListener('loadedmetadata', log_state);
+                v.addEventListener('loadeddata', log_state);
+                v.addEventListener('canplay', log_state);
+                v.addEventListener('canplaythrough', log_state);
+                v.addEventListener('canplaythrough', play_video);
+                
                 var canvas = $('#player canvas:first-of-type')[0];
                 var context = canvas.getContext('2d');
                 function draw() {
@@ -57,6 +70,9 @@
                 function play_video(event) {
                     event.target.play();
                 }
+
+                                                 
+                
                 v.addEventListener('canplaythrough', play_video);
                 v.addEventListener('play', draw);
                 $('menu').bind('click', function(event) {
@@ -89,10 +105,12 @@
 <body>
   <div class="body">
   HTML5 Video Juke 5
-  </div>
   
+  </div>
+  <span class="menuButton"><a class="home" href="${createLink(uri: '/')}">Home</a></span>
    <header>
         <h1>HTML5 Video Telestrator Jukebox_5</h1>
+        
     </header>
       <section id="player">
         <div>
