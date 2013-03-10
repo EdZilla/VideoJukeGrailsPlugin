@@ -6,4 +6,8 @@ class Media {
 	
     static constraints = {
     }
+	
+	String toString() {
+		return this.url;
+	}
 }

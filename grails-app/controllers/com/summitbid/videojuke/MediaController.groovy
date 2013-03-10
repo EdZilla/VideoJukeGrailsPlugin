@@ -7,23 +7,24 @@ class MediaController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
-		log.trace "index enter"
+		log.trace("Executing action $actionName with params $params")
         redirect(action: "list", params: params)
     }
 
     def list(Integer max) {
-		log.trace "list enter"
+		log.trace("Executing action $actionName with params $params")
         params.max = Math.min(max ?: 10, 100)
+		log.debug("${Media.count()}, ${Media.list()}, params: $params")
         [mediaInstanceList: Media.list(params), mediaInstanceTotal: Media.count()]
     }
 
     def create() {
-		log.trace "create enter"
+		log.trace("Executing action $actionName with params $params")
         [mediaInstance: new Media(params)]
     }
 
     def save() {
-		log.trace "save enter"
+		log.trace("Executing action $actionName with params $params")
         def mediaInstance = new Media(params)
         if (!mediaInstance.save(flush: true)) {
             render(view: "create", model: [mediaInstance: mediaInstance])
@@ -35,7 +36,7 @@ class MediaController {
     }
 
     def show(Long id) {
-		log.trace "show enter"
+		log.trace("Executing action $actionName with params $params")
         def mediaInstance = Media.get(id)
         if (!mediaInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'media.label', default: 'Media'), id])
@@ -47,7 +48,7 @@ class MediaController {
     }
 
     def edit(Long id) {
-		log.trace "edit enter"
+		log.trace("Executing action $actionName with params $params")
         def mediaInstance = Media.get(id)
         if (!mediaInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'media.label', default: 'Media'), id])
@@ -59,7 +60,7 @@ class MediaController {
     }
 
     def update(Long id, Long version) {
-		log.trace "update enter"
+		log.trace("Executing action $actionName with params $params")
         def mediaInstance = Media.get(id)
         if (!mediaInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'media.label', default: 'Media'), id])
@@ -89,7 +90,7 @@ class MediaController {
     }
 
     def delete(Long id) {
-		log.trace "delete enter"
+		log.trace("Executing action $actionName with params $params")
         def mediaInstance = Media.get(id)
         if (!mediaInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'media.label', default: 'Media'), id])
@@ -119,6 +120,8 @@ class MediaController {
 	
 	def playVideo_5 = {
 		log.trace" playVideo_5 enter"
+		log.debug("${Media.count()}, ${Media.list()}, params: $params")
+		[mediaInstanceList: Media.list(params), mediaInstanceTotal: Media.count()]
 	}
 	
 	def playVideo_6 = {

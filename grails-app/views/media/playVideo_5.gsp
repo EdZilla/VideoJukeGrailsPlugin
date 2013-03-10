@@ -144,6 +144,25 @@
             </ul>
         </nav>
     </section>
-  
+    <table>
+    <thead>
+					<tr>
+					
+						<g:sortableColumn property="url" title="${message(code: 'media.url.label', default: 'Url')}" />
+					
+					</tr>
+				</thead>
+    <tbody>
+ 				 <g:each in="${mediaInstanceList}" status="i" var="mediaInstance">
+					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+					
+						<td><g:link action="show" id="${mediaInstance.id}">${fieldValue(bean: mediaInstance, field: "filename")}</g:link></td>
+					
+						<td>${fieldValue(bean: mediaInstance, field: "url")}</td>
+					
+					</tr>
+				</g:each>
+				</tbody>
+			</table>	
 </body>
 </html>
