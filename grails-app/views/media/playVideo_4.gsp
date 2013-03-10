@@ -75,7 +75,7 @@
     <section id="player">
         <div>
             <canvas width="720" height="480"></canvas>
-            <video controls
+            <video controls autoplay
                    width="720" height="480">
                  <source src="http://localhost/DevVid/VID_mp4Experiment-web-low.webm" type="video/webm">  
                 <source src="http://localhost/DevVid/VID_mp4Experiment-web-low.mp4" type="video/mp4">

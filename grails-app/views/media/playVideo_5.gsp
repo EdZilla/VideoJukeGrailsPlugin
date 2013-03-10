@@ -36,13 +36,28 @@
     </style>
     
     <script>
+    	// get the clicked on event and construct the source element
         function change_video(event) {
+            // Trim off any whitespace characters. 
             var v = $(event.target).text().trim();
+            // grab the first src of the video element
             var p = $('#player video:first-of-type')[0];
-            var ext = p.currentSrc.slice(p.currentSrc.lastIndexOf('.'),p.currentSrc.length);
-	    p.src = 'http://localhost/DevVid/' + v + ext; 
+            // get the extension
+            var ext = p.currentSrc.slice(p.currentSrc.lastIndexOf('.'),p.currentSrc.length);            
+            console.log("event.target : ", $(event.target).text()); 
+            console.log("v : ", v);
+	    	console.log("p : ", p);
+	    	console.log("ext : ", ext);
+	    	console.log("p.src : ", p.src);
+	    	p.src = 'http://localhost/DevVid/' + v + ext;
         }
 
+    	function getVid(url) {
+        	console.log("url: ", url)
+        }
+        
+    	
+    	// log events
         function log_state(event) {
             console.log(event.type);
             console.log('networkState: ' + event.target.networkState);
@@ -131,10 +146,13 @@
                 the video instead</a>
             </video>
         </div>
+        
         <nav>
             <h2>Playlist</h2>
             <ul class="playlist">
-            	<li>VID_mp4Experiment-web-low</li>
+            	<g:each in="${mediaInstanceList}" status="i" var="mediaInstance">
+         								<li>${mediaInstance.url.split('/')[-1].replaceAll("\\.mp4", '').replaceAll("\\.webm",'')}</li>
+				</g:each>
                 <li>VID_20120122_133036</li>
                 <li>VID_20120122_132933</li>
                 <li>VID_20120122_132348</li>
@@ -144,25 +162,5 @@
             </ul>
         </nav>
     </section>
-    <table>
-    <thead>
-					<tr>
-					
-						<g:sortableColumn property="url" title="${message(code: 'media.url.label', default: 'Url')}" />
-					
-					</tr>
-				</thead>
-    <tbody>
- 				 <g:each in="${mediaInstanceList}" status="i" var="mediaInstance">
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${mediaInstance.id}">${fieldValue(bean: mediaInstance, field: "filename")}</g:link></td>
-					
-						<td>${fieldValue(bean: mediaInstance, field: "url")}</td>
-					
-					</tr>
-				</g:each>
-				</tbody>
-			</table>	
 </body>
 </html>
