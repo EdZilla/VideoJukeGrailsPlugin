@@ -124,7 +124,6 @@
             </menu>
             <video controls autoplay
                    width="720" height="480">
-                <source src="http://10.252.92.66/axis-cgi/mjpg/video.cgi?camera=1&fps=1" type="video/mp4">
                 <source src="http://localhost/DevVid/VID_mp4Experiment-web-low.mp4" type="video/mp4">
                 <source src="http://localhost/DevVid/VID_mp4Experiment-web-low.webm" type="video/webm">
                 Your browser does not support the video element, please
