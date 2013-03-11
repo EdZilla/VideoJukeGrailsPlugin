@@ -17,4 +17,9 @@ also added to httpd.conf
     AddType video/x-m4v .m4v
      
 
-What does it take to view video from axis video servers? 
+What does it take to view video from axis video servers?
+ 
+
+To generate a webm
+
+/opt/comcast/software/ffmpeg/ffmpeg -i VID_mp4Experiment-web-low.mp4 -s 558x314 -aspect 16:9 -vb 500000 VID_mp4Experiment-web-low-modified-1.webm
