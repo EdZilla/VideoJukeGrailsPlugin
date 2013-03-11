@@ -23,15 +23,6 @@
 			</g:if>
 			<ol class="property-list media">
 			
-				<g:if test="${mediaInstance?.filename}">
-				<li class="fieldcontain">
-					<span id="filename-label" class="property-label"><g:message code="media.filename.label" default="Filename" /></span>
-					
-						<span class="property-value" aria-labelledby="filename-label"><g:fieldValue bean="${mediaInstance}" field="filename"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${mediaInstance?.url}">
 				<li class="fieldcontain">
 					<span id="url-label" class="property-label"><g:message code="media.url.label" default="Url" /></span>

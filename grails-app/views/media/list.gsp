@@ -24,8 +24,6 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="filename" title="${message(code: 'media.filename.label', default: 'Filename')}" />
-					
 						<g:sortableColumn property="url" title="${message(code: 'media.url.label', default: 'Url')}" />
 					
 					</tr>
@@ -34,9 +32,7 @@
 				<g:each in="${mediaInstanceList}" status="i" var="mediaInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${mediaInstance.id}">${fieldValue(bean: mediaInstance, field: "filename")}</g:link></td>
-					
-						<td>${fieldValue(bean: mediaInstance, field: "url")}</td>
+						<td><g:link action="show" id="${mediaInstance.id}">${fieldValue(bean: mediaInstance, field: "url")}</g:link></td>
 					
 					</tr>
 				</g:each>
